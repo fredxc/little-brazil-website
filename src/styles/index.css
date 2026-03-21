@@ -1,6 +1,6 @@
-@import './fonts.css';
-@import './tailwind.css';
-@import './theme.css';
+@import "./fonts.css";
+@import "./tailwind.css";
+@import "./theme.css";
 
 /* Smooth scrolling */
 html {
@@ -17,4 +17,53 @@ html {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* ─── Infinite marquee animations ─── */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 50s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left-fast {
+  animation: marquee-left 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
+/* ─── Section separators ─── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.08),
+    transparent
+  );
 }

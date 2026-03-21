@@ -1,101 +1,88 @@
-import { ExternalLink } from 'lucide-react';
-import { motion } from 'motion/react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { ExternalLink } from "lucide-react";
+import { motion } from "motion/react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function AcaiSection() {
   const { t } = useLanguage();
-  const acaiUrl = 'https://acaiamsterdam.nl/';
-  const acaiImage = 'https://images.unsplash.com/photo-1610441009633-b6ca9c6d4be2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY2FpJTIwYm93bCUyMGZyZXNoJTIwYmVycmllc3xlbnwxfHx8fDE3NzQwODk3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+  const acaiUrl = "https://acaiamsterdam.nl/";
+  const acaiImage = "/img-5.jpeg";
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-10 right-10 w-72 h-72 bg-white/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-10 left-10 w-96 h-96 bg-pink-300/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1.3, 1, 1.3],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-        />
-      </div>
+    <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden">
+      {/* Subtle purple glow */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(147,51,234,0.12) 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+      <div className="container max-w-5xl mx-auto px-6 relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* Image – fixed size, left aligned on desktop */}
+          <motion.div
+            className="order-1 md:order-2 flex justify-center"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="w-full max-w-[320px] h-52 md:h-60 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+              <img
+                src={acaiImage}
+                alt="Açaí Bowl"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </motion.div>
+
           {/* Content */}
           <motion.div
-            className="text-white space-y-6 order-2 md:order-1"
+            className="order-2 md:order-1 space-y-5"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
           >
-            <h2
-              className="text-4xl md:text-5xl mb-4"
-              style={{ fontFamily: 'Gardein, sans-serif', fontWeight: 700 }}
-            >
-              {t('acaiTitle')}
-            </h2>
+            {/* Logo + title */}
+            <div className="flex items-center gap-3">
+              <img
+                src="/acai-logo.webp"
+                alt="Açaí Amsterdam"
+                className="w-14 h-14 rounded-full object-cover flex-shrink-0"
+              />
+              <h2
+                className="text-2xl md:text-3xl text-white leading-tight"
+                style={{ fontFamily: "Gardein, sans-serif", fontWeight: 700 }}
+              >
+                {t("acaiTitle")}
+              </h2>
+            </div>
+
             <p
-              className="text-xl mb-2"
-              style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
+              className="text-purple-300 text-sm font-semibold tracking-wide uppercase"
+              style={{ fontFamily: "Copperplate, serif" }}
             >
-              {t('acaiSubtitle')}
+              {t("acaiSubtitle")}
             </p>
-            <p className="text-lg leading-relaxed text-white/95">
-              {t('acaiText')}
+
+            <p className="text-white/65 text-sm leading-relaxed">
+              {t("acaiText")}
             </p>
 
             <motion.a
               href={acaiUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-purple-700 px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all mt-6"
-              style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2.5 bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold px-6 py-3 rounded-full transition-colors shadow-lg shadow-purple-900/30"
+              style={{ fontFamily: "Copperplate, serif" }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
             >
-              {t('ctaAcai')}
-              <ExternalLink className="w-5 h-5" />
+              {t("ctaAcai")}
+              <ExternalLink className="w-3.5 h-3.5" />
             </motion.a>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div
-            className="order-1 md:order-2"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src={acaiImage}
-                alt="Açaí Bowl"
-                className="w-full h-auto"
-              />
-            </motion.div>
           </motion.div>
         </div>
       </div>

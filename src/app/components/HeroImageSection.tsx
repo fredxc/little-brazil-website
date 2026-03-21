@@ -1,35 +1,33 @@
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
+
+const storeImages = [
+  { src: "/img-2.jpeg", alt: "Little Brazil Amsterdam – store interior" },
+  { src: "/img-3.jpeg", alt: "Little Brazil Amsterdam – Brazilian products" },
+  { src: "/img-4.jpeg", alt: "Little Brazil Amsterdam – fresh goods" },
+];
 
 export function HeroImageSection() {
-  const heroImages = [
-    'https://images.unsplash.com/photo-1654508590628-21c717998f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmF6aWxpYW4lMjBmb29kJTIwc3RvcmUlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzQwODk4NzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    'https://images.unsplash.com/photo-1592973379832-7cb6feae2b9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmF6aWxpYW4lMjBncm9jZXJ5JTIwc3RvcmUlMjBwcm9kdWN0c3xlbnwxfHx8fDE3NzQwODk3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    'https://images.unsplash.com/photo-1542379312-d69a543e004a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmF6aWxpYW4lMjBzdG9yZSUyMGFtc3RlcmRhbXxlbnwxfHx8fDE3NzQwODk3Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-  ];
-
   return (
-    <section className="py-12 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {heroImages.map((image, index) => (
-            <motion.div
-              key={index}
-              className="relative overflow-hidden rounded-2xl aspect-video shadow-xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-            >
-              <img
-                src={image}
-                alt={`Little Brazil Amsterdam ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </motion.div>
-          ))}
-        </div>
+    <section className="w-full">
+      {/* Full-bleed 3-column photo strip */}
+      <div className="flex h-52 md:h-72 lg:h-80 gap-0.5 bg-zinc-950">
+        {storeImages.map((img, index) => (
+          <motion.div
+            key={index}
+            className="relative flex-1 overflow-hidden"
+            initial={{ opacity: 0, scale: 1.06 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, delay: index * 0.12 }}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition-colors duration-300" />
+          </motion.div>
+        ))}
       </div>
     </section>
   );

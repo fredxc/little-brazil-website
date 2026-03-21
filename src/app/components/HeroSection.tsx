@@ -1,109 +1,108 @@
-import { MapPin, MessageCircle } from 'lucide-react';
-import { motion } from 'motion/react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { MapPin, MessageCircle } from "lucide-react";
+import { motion } from "motion/react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function HeroSection() {
   const { t } = useLanguage();
-  const whatsappNumber = '+31612345678';
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`;
-  const mapsUrl = 'https://maps.google.com/?q=Spuistraat+282+Amsterdam';
+  const whatsappNumber = "+31612345678";
+  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`;
+  const mapsUrl = "https://maps.app.goo.gl/YqccDKh4ALPA3g4D9";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 to-yellow-50 pt-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+    <section className="relative min-h-screen flex items-center mt-8 overflow-hidden bg-zinc-950">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src="/img-1.jpeg"
+          alt="Little Brazil Amsterdam store"
+          className="w-full h-full object-cover object-center"
+          style={{ filter: "brightness(0.55)" }}
+        />
+        {/* Gradient: strong at bottom so text is legible */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20 text-center">
-        {/* Brand Name - Large and Prominent */}
+      {/* Content – vertically centered */}
+      <div className="relative z-10 w-full container max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-28 md:pb-20">
+        <motion.p
+          className="text-emerald-400 text-sm tracking-[0.25em] uppercase mb-4 font-medium"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          Amsterdam · Raamsteeg 6
+        </motion.p>
+
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl text-emerald-700 mb-8"
-          style={{ fontFamily: 'Gardein, sans-serif', fontWeight: 700 }}
+          className="text-5xl sm:text-7xl lg:text-8xl text-white leading-none mb-6"
+          style={{ fontFamily: "Gardein, sans-serif", fontWeight: 700 }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
           Little Brazil
           <br />
-          <span className="text-yellow-500">Amsterdam</span>
+          <span className="text-yellow-400">Amsterdam</span>
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
-          className="text-xl md:text-3xl text-gray-700 max-w-3xl mx-auto mb-12 px-4"
-          style={{ fontFamily: 'Copperplate, serif' }}
-          initial={{ opacity: 0, y: 30 }}
+          className="text-base md:text-lg text-white/70 max-w-md mb-10"
+          style={{ fontFamily: "Copperplate, serif" }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
         >
-          {t('heroSubtitle')}
+          {t("heroSubtitle")}
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4"
-          initial={{ opacity: 0, y: 30 }}
+          className="flex flex-col sm:flex-row gap-3"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <motion.a
-            href={mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-emerald-700 text-white px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
-            style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <MapPin className="w-5 h-5" />
-            {t('ctaLocation')}
-          </motion.a>
-
           <motion.a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
-            style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2.5 bg-[#25D366] text-white text-sm font-semibold px-7 py-3.5 rounded-full shadow-lg hover:bg-[#1fb154] transition-colors"
+            style={{ fontFamily: "Copperplate, serif" }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
           >
-            <MessageCircle className="w-5 h-5" />
-            {t('ctaWhatsApp')}
+            <MessageCircle className="w-4 h-4" />
+            {t("ctaWhatsApp")}
+          </motion.a>
+
+          <motion.a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-white/20 transition-colors"
+            style={{ fontFamily: "Copperplate, serif" }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <MapPin className="w-4 h-4" />
+            {t("ctaLocation")}
           </motion.a>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-        >
-          <div className="w-6 h-10 border-2 border-emerald-700/50 rounded-full flex justify-center pt-2">
-            <motion.div
-              className="w-1.5 h-1.5 bg-emerald-700 rounded-full"
-              animate={{
-                y: [0, 12, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }}
-            />
-          </div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 right-8 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+      >
+        <motion.div
+          className="w-px h-16 bg-white/30"
+          animate={{ scaleY: [0.3, 1, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          style={{ originY: 0 }}
+        />
+      </motion.div>
     </section>
   );
 }

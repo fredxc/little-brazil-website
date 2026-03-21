@@ -1,148 +1,284 @@
-import { motion } from 'motion/react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { useState } from "react";
+import { motion } from "motion/react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const products = [
   {
-    name: 'Pão de Queijo',
-    nameEn: 'Cheese Bread',
-    image: 'https://images.unsplash.com/photo-1773399159457-b8e8ccdc980d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYW8lMjBkZSUyMHF1ZWlqbyUyMGNoZWVzZSUyMGJyZWFkfGVufDF8fHx8MTc3NDAwMzA5MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Sagu Yoki",
+    nameEn: "Tapioca Pearl Dessert",
+    image: "/products/prod-1.png",
   },
   {
-    name: 'Açaí',
-    nameEn: 'Açaí Bowl',
-    image: 'https://images.unsplash.com/photo-1610441009633-b6ca9c6d4be2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY2FpJTIwYm93bCUyMGZyZXNoJTIwYmVycmllc3xlbnwxfHx8fDE3NzQwODk3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Danentte",
+    nameEn: "Chocolate Pudding Cup",
+    image: "/products/prod-2.png",
   },
   {
-    name: 'Brigadeiro',
-    nameEn: 'Chocolate Brigadeiro',
-    image: 'https://images.unsplash.com/photo-1767396867485-7e41ee6fec97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlnYWRlaXJvJTIwY2hvY29sYXRlJTIwZGVzc2VydHxlbnwxfHx8fDE3NzQwMDc1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Suco Maguary",
+    nameEn: "Maguary Tropical Juice",
+    image: "/products/prod-3.png",
   },
   {
-    name: 'Café Brasileiro',
-    nameEn: 'Brazilian Coffee',
-    image: 'https://images.unsplash.com/photo-1626379907480-29d844d603ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmF6aWxpYW4lMjBjb2ZmZWUlMjBiZWFuc3xlbnwxfHx8fDE3NzQwODU3NTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Sazón Tempero",
+    nameEn: "Sazón All-in-One Seasoning",
+    image: "/products/prod-4.png",
   },
   {
-    name: 'Guaraná',
-    nameEn: 'Guaraná Soda',
-    image: 'https://images.unsplash.com/photo-1680737562705-3cdc1ddfaf9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxndWFyYW5hJTIwc29kYSUyMGRyaW5rfGVufDF8fHx8MTc3NDA4OTcyN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Extrato Tomate Elefante",
+    nameEn: "Elephant Tomato Paste",
+    image: "/products/prod-5.png",
   },
   {
-    name: 'Farofa',
-    nameEn: 'Toasted Cassava Flour',
-    image: 'https://images.unsplash.com/photo-1671452443552-3ed5548b71a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJvZmElMjBicmF6aWxpYW4lMjBzZWFzb25pbmd8ZW58MXx8fHwxNzc0MDg5NzI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Molho Tomate Quero",
+    nameEn: "Quero Tomato Sauce",
+    image: "/products/prod-6.png",
   },
   {
-    name: 'Maracujá',
-    nameEn: 'Passion Fruit',
-    image: 'https://images.unsplash.com/photo-1664993119473-013502f1e3f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXNzaW9uJTIwZnJ1aXQlMjB0cm9waWNhbHxlbnwxfHx8fDE3NzQwODk3Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Palmito Pupunha",
+    nameEn: "Peach Palm Hearts",
+    image: "/products/prod-7.png",
   },
   {
-    name: 'Mandioca',
-    nameEn: 'Cassava Root',
-    image: 'https://images.unsplash.com/photo-1757283961570-682154747d9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXNzYXZhJTIwbWFuaW9jJTIwcm9vdHxlbnwxfHx8fDE3NzQwODk3Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Molhos Soul Brasil",
+    nameEn: "Soul Brasil Hot Sauces",
+    image: "/products/prod-8.png",
   },
   {
-    name: 'Feijoada',
-    nameEn: 'Black Bean Stew',
-    image: 'https://images.unsplash.com/photo-1612504258838-fbf14fe4437d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZWlqb2FkYSUyMGJyYXppbGlhbiUyMGJlYW5zfGVufDF8fHx8MTc3NDA4OTkxMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Gelatina Pronta",
+    nameEn: "Ready-Made Jelly",
+    image: "/products/prod-9.png",
   },
   {
-    name: 'Coxinha',
-    nameEn: 'Chicken Croquette',
-    image: 'https://images.unsplash.com/photo-1600767355936-73bef411285c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3hpbmhhJTIwYnJhemlsaWFuJTIwc25hY2t8ZW58MXx8fHwxNzc0MDAzMDg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Guaraná Antarctica Zero",
+    nameEn: "Guaraná Antarctica Zero (diet)",
+    image: "/products/prod-10.png",
   },
   {
-    name: 'Picanha',
-    nameEn: 'Top Sirloin Cap',
-    image: 'https://images.unsplash.com/photo-1702288824191-3003d32484b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaWNhbmhhJTIwc3RlYWslMjBtZWF0fGVufDF8fHx8MTc3NDA4OTkxM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Guaraná Antarctica",
+    nameEn: "Guaraná Antarctica Soda",
+    image: "/products/prod-11.png",
   },
   {
-    name: 'Doce de Leite',
-    nameEn: 'Caramel Spread',
-    image: 'https://images.unsplash.com/photo-1547047803-fa4a5f94ffd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkdWxjZSUyMGRlJTIwbGVjaGUlMjBjYXJhbWVsfGVufDF8fHx8MTc3NDA4OTkxM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Molho de Alho",
+    nameEn: "Garlic Sauce",
+    image: "/products/prod-12.png",
   },
   {
-    name: 'Água de Coco',
-    nameEn: 'Coconut Water',
-    image: 'https://images.unsplash.com/photo-1588413336022-43f5326d33b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvbnV0JTIwd2F0ZXIlMjBmcmVzaHxlbnwxfHx8fDE3NzQwMTYwOTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Massa de Bolo Dona Benta",
+    nameEn: "Dona Benta Cake Mix",
+    image: "/products/prod-13.png",
   },
   {
-    name: 'Queijo Minas',
-    nameEn: 'Minas Cheese',
-    image: 'https://images.unsplash.com/photo-1654513547430-973fe7570159?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmF6aWxpYW4lMjBjaGVlc2V8ZW58MXx8fHwxNzc0MDg5OTE0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Leite Moça Nestle",
+    nameEn: "Nestlé Condensed Milk",
+    image: "/products/prod-14.png",
   },
   {
-    name: 'Produtos Brasileiros',
-    nameEn: 'Brazilian Products',
-    image: 'https://images.unsplash.com/photo-1592973379832-7cb6feae2b9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmF6aWxpYW4lMjBncm9jZXJ5JTIwc3RvcmUlMjBwcm9kdWN0c3xlbnwxfHx8fDE3NzQwODk3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    name: "Fuba Mimoso Yoki",
+    nameEn: "Yoki Fine Cornmeal",
+    image: "/products/prod-15.png",
+  },
+  {
+    name: "Feijão Preto Camil",
+    nameEn: "Camil Black Beans",
+    image: "/products/prod-16.png",
+  },
+  {
+    name: "Feijão Carioca Camil",
+    nameEn: "Camil Pinto Beans",
+    image: "/products/prod-17.png",
+  },
+  {
+    name: "Farinha de Mandioca",
+    nameEn: "Cassava Flour",
+    image: "/products/prod-18.png",
+  },
+  {
+    name: "Ecobag Copacabana",
+    nameEn: "Copacabana Tote Bag",
+    image: "/products/prod-19.png",
+  },
+  {
+    name: "Passatempo Recheado",
+    nameEn: "Passatempo Filled Cookies",
+    image: "/products/prod-20.png",
+  },
+  {
+    name: "Bis Lacta",
+    nameEn: "Bis Chocolate Wafer",
+    image: "/products/prod-21.png",
+  },
+  { name: "Boné Brasil", nameEn: "Brazil Cap", image: "/products/prod-22.png" },
+  {
+    name: "Bis Branco Lacta",
+    nameEn: "Bis White Chocolate Wafer",
+    image: "/products/prod-23.png",
+  },
+  {
+    name: "Creme de Leite Nestle",
+    nameEn: "Nestlé Heavy Cream",
+    image: "/products/prod-24.png",
+  },
+  {
+    name: "Café Pilão",
+    nameEn: "Pilão Brazilian Coffee",
+    image: "/products/prod-25.png",
+  },
+  {
+    name: "Chapéu Brasil",
+    nameEn: "Brazil Hat",
+    image: "/products/prod-26.png",
+  },
+  {
+    name: "Chá Matte Leão",
+    nameEn: "Leão Mate Tea",
+    image: "/products/prod-27.png",
+  },
+  {
+    name: "Suco Goiaba Compal",
+    nameEn: "Compal Guava Juice",
+    image: "/products/prod-28.png",
+  },
+  {
+    name: "Amendoim Japonês",
+    nameEn: "Japanese-Style Coated Peanuts",
+    image: "/products/prod-29.png",
+  },
+  {
+    name: "Chá Matte Leão",
+    nameEn: "Leão Iced Mate Tea",
+    image: "/products/prod-30.png",
+  },
+  {
+    name: "Azeitonas Rivoli",
+    nameEn: "Rivoli Olives",
+    image: "/products/prod-31.png",
+  },
+  {
+    name: "Biscoito Nesfit",
+    nameEn: "Nesfit Whole Grain Biscuits",
+    image: "/products/prod-32.png",
+  },
+  {
+    name: "Boné Brasil",
+    nameEn: "Brazil Baseball Cap",
+    image: "/products/prod-33.png",
+  },
+  {
+    name: "Arroz Camil",
+    nameEn: "Camil White Rice",
+    image: "/products/prod-34.png",
+  },
+  {
+    name: "Suco Laranja Compal",
+    nameEn: "Compal Orange Juice",
+    image: "/products/prod-35.png",
+  },
+  {
+    name: "Suco Manga Compal",
+    nameEn: "Compal Mango Juice",
+    image: "/products/prod-36.png",
+  },
+  {
+    name: "Suco Abacaxi Compal",
+    nameEn: "Compal Pineapple Juice",
+    image: "/products/prod-37.png",
   },
 ];
 
-export function ProductsSection() {
-  const { t, language } = useLanguage();
+// Split into 3 non-overlapping groups so each row shows unique products
+const row1 = products.slice(0, 13); // 13 items
+const row2 = products.slice(13, 25); // 12 items
+const row3 = products.slice(25); // 12 items
+
+interface MarqueeRowProps {
+  items: typeof products;
+  direction: "left" | "right";
+  speed: "normal" | "fast" | "slow";
+}
+
+function MarqueeRow({ items, direction, speed }: MarqueeRowProps) {
+  const [paused, setPaused] = useState(false);
+  const { language } = useLanguage();
+
+  const animClass =
+    direction === "right"
+      ? "animate-marquee-right"
+      : speed === "fast"
+        ? "animate-marquee-left-fast"
+        : "animate-marquee-left";
+
+  // Duplicate items for seamless infinite loop
+  const doubled = [...items, ...items];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2
-            className="text-4xl md:text-5xl text-emerald-700 mb-4"
-            style={{ fontFamily: 'Gardein, sans-serif', fontWeight: 700 }}
-          >
-            {t('productsTitle')}
-          </h2>
-          <p
-            className="text-xl text-gray-600"
-            style={{ fontFamily: 'Copperplate, serif' }}
-          >
-            {t('productsSubtitle')}
-          </p>
-        </motion.div>
-
-        {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              className="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ y: -8 }}
+    <div className="overflow-hidden">
+      <div
+        className={`flex gap-2.5 ${animClass} ${paused ? "marquee-paused" : ""}`}
+        style={{ width: "max-content" }}
+      >
+        {doubled.map((product, i) => {
+          const name = language === "pt" ? product.name : product.nameEn;
+          return (
+            <div
+              key={i}
+              className="relative flex-shrink-0 w-[110px] h-[110px] md:w-[128px] md:h-[128px] rounded-xl overflow-hidden cursor-pointer group"
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
             >
-              {/* Image */}
               <img
                 src={product.image}
-                alt={language === 'pt' ? product.name : product.nameEn}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                alt={name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
               />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Product Name */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p
-                  className="text-center"
-                  style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
+              {/* Dark overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300" />
+              {/* Tooltip / name on hover */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-2">
+                <span
+                  className="text-white text-xs font-semibold text-center leading-tight drop-shadow-lg"
+                  style={{ fontFamily: "Copperplate, serif" }}
                 >
-                  {language === 'pt' ? product.name : product.nameEn}
-                </p>
+                  {name}
+                </span>
               </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
-              {/* Hover Shadow Effect */}
-              <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-            </motion.div>
-          ))}
-        </div>
+export function ProductsSection() {
+  const { t } = useLanguage();
+
+  return (
+    <section className="py-16 md:py-24 bg-zinc-950 overflow-hidden">
+      <motion.div
+        className="container max-w-5xl mx-auto px-6 mb-10 md:mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <p className="text-emerald-400 text-xs tracking-[0.25em] uppercase mb-3">
+          {t("productsSubtitle")}
+        </p>
+        <h2
+          className="text-3xl md:text-4xl text-white"
+          style={{ fontFamily: "Gardein, sans-serif", fontWeight: 700 }}
+        >
+          {t("productsTitle")}
+        </h2>
+      </motion.div>
+
+      {/* 3 marquee rows */}
+      <div className="flex flex-col gap-2.5">
+        <MarqueeRow items={row1} direction="left" speed="normal" />
+        <MarqueeRow items={row2} direction="right" speed="fast" />
+        <MarqueeRow items={row3} direction="left" speed="slow" />
       </div>
     </section>
   );

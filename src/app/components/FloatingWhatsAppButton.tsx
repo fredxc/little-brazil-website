@@ -1,26 +1,12 @@
-import { MessageCircle } from 'lucide-react';
-import { motion } from 'motion/react';
+import { MessageCircle } from "lucide-react";
+import { motion } from "motion/react";
 
 export function FloatingWhatsAppButton() {
-  const whatsappNumber = '+31612345678'; // Replace with actual number
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`;
+  const whatsappNumber = "+31612345678"; // Replace with actual number
+  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Pulse Effect */}
-      <motion.div
-        className="absolute inset-0 bg-[#25D366] rounded-full"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.5, 0, 0.5],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: 'loop',
-        }}
-      />
-      
       {/* Button */}
       <motion.a
         href={whatsappUrl}
@@ -35,10 +21,23 @@ export function FloatingWhatsAppButton() {
         transition={{
           duration: 2,
           repeat: Infinity,
-          repeatType: 'reverse',
+          repeatType: "reverse",
         }}
       >
-        <MessageCircle className="w-7 h-7" />
+        {/* Pulse Effect – inside button so it follows the float animation */}
+        <motion.div
+          className="absolute inset-0 bg-[#25D366] rounded-full"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.5, 0, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+        />
+        <MessageCircle className="w-7 h-7 relative" />
       </motion.a>
     </div>
   );
