@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 
 export function FloatingWhatsAppButton() {
-  const whatsappNumber = "+31612345678"; // Replace with actual number
+  const whatsappNumber = "+31634142080";
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`;
 
   return (

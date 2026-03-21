@@ -8,13 +8,13 @@ export function StoreInfoSection() {
   const directionsUrl = "https://maps.app.goo.gl/YqccDKh4ALPA3g4D9";
 
   const schedule = [
-    { day: t("monday"), hours: "10:00 - 19:00" },
-    { day: t("tuesday"), hours: "10:00 - 19:00" },
-    { day: t("wednesday"), hours: "10:00 - 19:00" },
-    { day: t("thursday"), hours: "10:00 - 19:00" },
-    { day: t("friday"), hours: "10:00 - 19:00" },
-    { day: t("saturday"), hours: "10:00 - 18:00" },
-    { day: t("sunday"), hours: t("closed") },
+    { day: t("monday"), hours: "12:00 - 17:00" },
+    { day: t("tuesday"), hours: "11:00 - 18:00" },
+    { day: t("wednesday"), hours: "11:00 - 18:00" },
+    { day: t("thursday"), hours: "11:00 - 18:00" },
+    { day: t("friday"), hours: "11:00 - 18:00" },
+    { day: t("saturday"), hours: "11:00 - 18:00" },
+    { day: t("sunday"), hours: "12:00 - 17:00" },
   ];
 
   return (
@@ -42,14 +42,14 @@ export function StoreInfoSection() {
           {/* Address & Map */}
           <motion.div
             className="space-y-6"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-2">
               <div className="bg-emerald-50 p-2.5 rounded-xl flex-shrink-0">
-                <MapPin className="w-5 h-5 text-emerald-600" />
+                <MapPin className="w-4 h-4 text-emerald-600" />
               </div>
               <div>
                 <h3
@@ -94,14 +94,14 @@ export function StoreInfoSection() {
           {/* Opening Hours */}
           <motion.div
             className="space-y-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-2">
               <div className="bg-yellow-50 p-2.5 rounded-xl flex-shrink-0">
-                <Clock className="w-5 h-5 text-yellow-600" />
+                <Clock className="w-4 h-4 text-yellow-600" />
               </div>
               <div className="flex-1">
                 <h3

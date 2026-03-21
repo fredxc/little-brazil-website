@@ -4,18 +4,18 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 export function HeroSection() {
   const { t } = useLanguage();
-  const whatsappNumber = "+31612345678";
+  const whatsappNumber = "+31634142080";
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`;
   const mapsUrl = "https://maps.app.goo.gl/YqccDKh4ALPA3g4D9";
 
   return (
-    <section className="relative min-h-screen flex items-center mt-8 overflow-hidden bg-zinc-950">
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-zinc-950">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/img-1.jpeg"
           alt="Little Brazil Amsterdam store"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[60%] sm:object-center"
           style={{ filter: "brightness(0.55)" }}
         />
         {/* Gradient: strong at bottom so text is legible */}
@@ -23,7 +23,7 @@ export function HeroSection() {
       </div>
 
       {/* Content – vertically centered */}
-      <div className="relative z-10 w-full container max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-28 md:pb-20">
+      <div className="relative z-10 w-full container max-w-5xl mx-auto px-6 pt-28 pb-12 md:pt-32 md:pb-20">
         <motion.p
           className="text-emerald-400 text-sm tracking-[0.25em] uppercase mb-4 font-medium"
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-3"
+          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
@@ -65,7 +65,7 @@ export function HeroSection() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[#25D366] text-white text-sm font-semibold px-7 py-3.5 rounded-full shadow-lg hover:bg-[#1fb154] transition-colors"
+            className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] text-white text-sm font-semibold px-7 py-3.5 rounded-full shadow-lg hover:bg-[#1fb154] transition-colors w-full sm:w-auto"
             style={{ fontFamily: "Copperplate, serif" }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
@@ -78,7 +78,7 @@ export function HeroSection() {
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-white/20 transition-colors"
+            className="inline-flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-white/20 transition-colors w-full sm:w-auto"
             style={{ fontFamily: "Copperplate, serif" }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
@@ -91,7 +91,7 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 right-8 flex flex-col items-center gap-2"
+        className="hidden sm:flex absolute bottom-8 right-8 flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}

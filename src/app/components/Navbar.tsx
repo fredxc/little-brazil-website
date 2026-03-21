@@ -20,17 +20,17 @@ export function Navbar() {
           <img
             src={logoWhite}
             alt="Little Brazil Amsterdam"
-            className="w-8 h-8 md:w-9 md:h-9"
+            className="w-8 h-8 md:w-9 md:h-9 flex-shrink-0"
           />
           <h1
-            className="text-sm md:text-base text-white leading-tight"
+            className="text-[13px] sm:text-sm md:text-base text-white leading-none"
             style={{ fontFamily: "Gardein, sans-serif", fontWeight: 700 }}
           >
-            <span className="hidden sm:inline">
-              Little <span className="text-emerald-400">Brazil </span>
-              <span className="text-yellow-400">Amsterdam</span>
+            <span>
+              Little <span className="text-emerald-400">Brazil</span>
             </span>
-            <span className="sm:hidden">Little Brazil</span>
+            <br />
+            <span className="text-yellow-400">Amsterdam</span>
           </h1>
         </div>
 

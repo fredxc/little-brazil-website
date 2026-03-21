@@ -9,12 +9,12 @@ const storeImages = [
 export function HeroImageSection() {
   return (
     <section className="w-full">
-      {/* Full-bleed 3-column photo strip */}
-      <div className="flex h-52 md:h-72 lg:h-80 gap-0.5 bg-zinc-950">
+      {/* Full-bleed photo strip — stacks vertically on mobile, 3-column on sm+ */}
+      <div className="flex flex-col sm:flex-row gap-0.5 bg-zinc-950">
         {storeImages.map((img, index) => (
           <motion.div
             key={index}
-            className="relative flex-1 overflow-hidden"
+            className="relative overflow-hidden h-64 sm:flex-1 sm:h-52 md:h-72 lg:h-80"
             initial={{ opacity: 0, scale: 1.06 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -23,7 +23,7 @@ export function HeroImageSection() {
             <img
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+              className="w-full h-full object-cover object-center transition-transform duration-700 md:hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition-colors duration-300" />
           </motion.div>

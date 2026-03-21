@@ -2,8 +2,10 @@
 @import "./tailwind.css";
 @import "./theme.css";
 
-/* Smooth scrolling */
-html {
+/* Smooth scrolling & prevent horizontal overflow */
+html,
+body {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -13,10 +15,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prevent layout shift during image loading */
-img {
-  max-width: 100%;
-  height: auto;
+/* Prevent images from overflowing their containers */
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* ─── Infinite marquee animations ─── */

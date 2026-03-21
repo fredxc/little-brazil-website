@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { motion } from "motion/react";
 import { useLanguage } from "../contexts/LanguageContext";
 
-const logoGreen = "/logo-green.png";
+const logoWhite = "/logo-white.png";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -15,7 +15,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <img
-              src={logoGreen}
+              src={logoWhite}
               alt="Little Brazil Logo"
               className="w-10 h-10"
             />
@@ -49,10 +49,10 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0" />
                 <a
-                  href="tel:+31612345678"
+                  href="tel:+31634142080"
                   className="text-xs hover:text-white transition-colors"
                 >
-                  +31 6 1234 5678
+                  +31 6 3414 2080
                 </a>
               </div>
               <div className="flex items-center gap-3">

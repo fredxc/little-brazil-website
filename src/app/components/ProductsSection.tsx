@@ -197,6 +197,77 @@ interface MarqueeRowProps {
   speed: "normal" | "fast" | "slow";
 }
 
+interface ProductCardProps {
+  product: (typeof products)[0];
+  language: string;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}
+
+function ProductCard({
+  product,
+  language,
+  onMouseEnter,
+  onMouseLeave,
+}: ProductCardProps) {
+  const [tapped, setTapped] = useState(false);
+  const name = language === "pt" ? product.name : product.nameEn;
+
+  const handleClick = () => {
+    setTapped((prev) => {
+      if (!prev) {
+        setTimeout(() => {
+          setTapped(false);
+          onMouseLeave();
+        }, 3000);
+        return true;
+      }
+      return false;
+    });
+  };
+
+  return (
+    <div
+      className="relative flex-shrink-0 w-[90px] h-[90px] md:w-[128px] md:h-[128px] rounded-xl overflow-hidden cursor-pointer group"
+      onMouseEnter={() => {
+        onMouseEnter();
+        setTapped(false);
+      }}
+      onMouseLeave={() => {
+        onMouseLeave();
+        setTapped(false);
+      }}
+      onClick={handleClick}
+    >
+      <img
+        src={product.image}
+        alt={name}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        loading="lazy"
+      />
+      {/* Overlay */}
+      <div
+        className={`absolute inset-0 transition-colors duration-300 ${
+          tapped ? "bg-black/60" : "bg-black/0 group-hover:bg-black/50"
+        }`}
+      />
+      {/* Name label */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 px-2 ${
+          tapped ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+        }`}
+      >
+        <span
+          className="text-white text-[10px] md:text-xs font-semibold text-center leading-tight drop-shadow-lg"
+          style={{ fontFamily: "Copperplate, serif" }}
+        >
+          {name}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function MarqueeRow({ items, direction, speed }: MarqueeRowProps) {
   const [paused, setPaused] = useState(false);
   const { language } = useLanguage();
@@ -212,40 +283,23 @@ function MarqueeRow({ items, direction, speed }: MarqueeRowProps) {
   const doubled = [...items, ...items];
 
   return (
-    <div className="overflow-hidden">
+    <div
+      className="overflow-hidden touch-pan-y"
+      style={{ touchAction: "pan-y" }}
+    >
       <div
-        className={`flex gap-2.5 ${animClass} ${paused ? "marquee-paused" : ""}`}
+        className={`flex gap-2 md:gap-2.5 ${animClass} ${paused ? "marquee-paused" : ""}`}
         style={{ width: "max-content" }}
       >
-        {doubled.map((product, i) => {
-          const name = language === "pt" ? product.name : product.nameEn;
-          return (
-            <div
-              key={i}
-              className="relative flex-shrink-0 w-[110px] h-[110px] md:w-[128px] md:h-[128px] rounded-xl overflow-hidden cursor-pointer group"
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
-            >
-              <img
-                src={product.image}
-                alt={name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-              {/* Dark overlay on hover */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300" />
-              {/* Tooltip / name on hover */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-2">
-                <span
-                  className="text-white text-xs font-semibold text-center leading-tight drop-shadow-lg"
-                  style={{ fontFamily: "Copperplate, serif" }}
-                >
-                  {name}
-                </span>
-              </div>
-            </div>
-          );
-        })}
+        {doubled.map((product, i) => (
+          <ProductCard
+            key={i}
+            product={product}
+            language={language}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          />
+        ))}
       </div>
     </div>
   );

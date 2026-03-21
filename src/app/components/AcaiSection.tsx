@@ -23,8 +23,8 @@ export function AcaiSection() {
           {/* Image – fixed size, left aligned on desktop */}
           <motion.div
             className="order-1 md:order-2 flex justify-center"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
@@ -40,8 +40,8 @@ export function AcaiSection() {
           {/* Content */}
           <motion.div
             className="order-2 md:order-1 space-y-5"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >

@@ -15,7 +15,7 @@ export default function App() {
     <LanguageProvider>
       <SEO />
       <div
-        className="min-h-screen bg-zinc-950 scroll-smooth"
+        className="min-h-screen bg-zinc-950 scroll-smooth overflow-x-hidden"
         style={{ fontFamily: "Copperplate, serif" }}
       >
         {/* Fixed Elements */}
