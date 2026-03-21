@@ -1,7 +1,8 @@
-import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
-import { motion } from 'motion/react';
-import { useLanguage } from '../contexts/LanguageContext';
-import logoGreen from 'figma:asset/387449d40355e61aeb4d46f11348e1cc55b8ff95.png';
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { motion } from "motion/react";
+import { useLanguage } from "../contexts/LanguageContext";
+
+const logoGreen = "/logo-green.png";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -13,15 +14,22 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={logoGreen} alt="Little Brazil Logo" className="w-16 h-16" />
+            <img
+              src={logoGreen}
+              alt="Little Brazil Logo"
+              className="w-16 h-16"
+            />
             <h3
               className="text-2xl"
-              style={{ fontFamily: 'Gardein, sans-serif', fontWeight: 700 }}
+              style={{ fontFamily: "Gardein, sans-serif", fontWeight: 700 }}
             >
               Little Brazil Amsterdam
             </h3>
-            <p className="text-emerald-200 text-sm" style={{ fontFamily: 'Copperplate, serif' }}>
-              {t('footerTagline')}
+            <p
+              className="text-emerald-200 text-sm"
+              style={{ fontFamily: "Copperplate, serif" }}
+            >
+              {t("footerTagline")}
             </p>
           </div>
 
@@ -29,18 +37,23 @@ export function Footer() {
           <div className="space-y-4">
             <h4
               className="text-lg mb-4"
-              style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
+              style={{ fontFamily: "Copperplate, serif", fontWeight: 700 }}
             >
               Contato / Contact
             </h4>
             <div className="space-y-3 text-emerald-200">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                <span className="text-sm">Spuistraat 282, 1012 VX Amsterdam</span>
+                <span className="text-sm">
+                  Spuistraat 282, 1012 VX Amsterdam
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <a href="tel:+31612345678" className="text-sm hover:text-white transition-colors">
+                <a
+                  href="tel:+31612345678"
+                  className="text-sm hover:text-white transition-colors"
+                >
                   +31 6 1234 5678
                 </a>
               </div>
@@ -60,7 +73,7 @@ export function Footer() {
           <div className="space-y-4">
             <h4
               className="text-lg mb-4"
-              style={{ fontFamily: 'Copperplate, serif', fontWeight: 700 }}
+              style={{ fontFamily: "Copperplate, serif", fontWeight: 700 }}
             >
               Redes Sociais / Social Media
             </h4>
@@ -91,7 +104,9 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-emerald-800 pt-8 text-center text-emerald-300 text-sm">
-          <p>© {currentYear} Little Brazil Amsterdam. {t('footerRights')}</p>
+          <p>
+            © {currentYear} Little Brazil Amsterdam. {t("footerRights")}
+          </p>
         </div>
       </div>
     </footer>
