@@ -13,7 +13,7 @@ const translations = {
     // Hero Section
     heroTitle: "Seu pedacinho do Brasil em Amsterdam",
     heroSubtitle:
-      "Produtos autênticos brasileiros no coração da Holanda. Mate a saudade de casa.",
+      "Seu espaço brasileiro no coração da Holanda. Mate a saudade de casa.",
     ctaLocation: "Ver localização",
     ctaWhatsApp: "Falar no WhatsApp",
 
@@ -38,6 +38,7 @@ const translations = {
     ctaDirections: "Como chegar",
 
     // About Section
+    ourStoryTitle: "Nossa História",
     aboutTitle: "Sobre Nós",
     aboutText1:
       "Somos mais que uma loja. Somos um pedacinho do Brasil em Amsterdam.",
@@ -55,12 +56,40 @@ const translations = {
     menuSalgados: "Salgados",
     menuDoces: "Doces",
 
+    menuSalgadosList: [
+      "Pão de queijo",
+      "Coxinha de frango com catupiry",
+      "Coxinha de costela com catupiry",
+      "Esfiha de frango",
+      "Esfiha de costela",
+      "Enroladinho de salsicha",
+      "Risoles de carne",
+      "Torta de frango com requeijão",
+      "Empada de palmito",
+      "Kibe frito",
+      "Café brasileiro",
+    ],
+    menuDocesList: [
+      "Pudim de leite condensado",
+      "Brigadeiro",
+      "Bolo de cenoura com chocolate",
+      "Bolos gelados diversos",
+      "Açaí no copo",
+    ],
+
     // Acai Section
     acaiTitle: "Conheça Nosso Açaí",
     acaiSubtitle: "Açaí autêntico, fresquinho e delicioso",
     acaiText:
       "Experimente o melhor açaí de Amsterdam! Feito com polpa brasileira 100% natural, do jeito que você lembra.",
     ctaAcai: "Visitar Açaí Amsterdam",
+
+    // Restaurant Section
+    restaurantTitle: "O sabor do Brasil no nosso restaurante",
+    restaurantText:
+      "Experimente pratos icônicos como feijoada, strogonoff e muito mais, preparados com ingredientes autênticos e aquele toque caseiro brasileiro. Nosso espaço é perfeito para almoços, jantares e também para celebrar momentos especiais com quem você ama.\n\nQuer fazer seu evento aqui? Agende sua festa, confraternização ou reunião e viva uma experiência inesquecível no coração de Amsterdam!",
+    restaurantBtnEvent: "Agendar Evento",
+    restaurantBtnDirections: "Como Chegar",
 
     // Footer
     footerTagline: "Matando a saudade, um produto de cada vez.",
@@ -70,7 +99,7 @@ const translations = {
     // Hero Section
     heroTitle: "Your piece of Brazil in Amsterdam",
     heroSubtitle:
-      "Authentic Brazilian products in the heart of the Netherlands. Feel at home again.",
+      "Your Brazilian space in the heart of the Netherlands. Feel at home again.",
     ctaLocation: "View location",
     ctaWhatsApp: "Chat on WhatsApp",
 
@@ -95,6 +124,7 @@ const translations = {
     ctaDirections: "Get directions",
 
     // About Section
+    ourStoryTitle: "Our Story",
     aboutTitle: "About Us",
     aboutText1:
       "We are more than a store. We are a piece of Brazil in Amsterdam.",
@@ -112,12 +142,40 @@ const translations = {
     menuSalgados: "Savory",
     menuDoces: "Sweet",
 
+    menuSalgadosList: [
+      "Cheese bread",
+      "Chicken coxinha with catupiry",
+      "Beef coxinha with catupiry",
+      "Chicken esfiha",
+      "Beef esfiha",
+      "Sausage roll",
+      "Beef rissole",
+      "Chicken pie with requeijão",
+      "Hearts of palm empada",
+      "Fried kibbeh",
+      "Brazilian coffee",
+    ],
+    menuDocesList: [
+      "Condensed milk flan",
+      "Brigadeiro",
+      "Carrot cake with chocolate",
+      "Assorted chilled cakes",
+      "Açaí cup",
+    ],
+
     // Acai Section
     acaiTitle: "Discover Our Açaí",
     acaiSubtitle: "Authentic, fresh and delicious açaí",
     acaiText:
       "Try the best açaí in Amsterdam! Made with 100% natural Brazilian pulp, just the way you remember.",
     ctaAcai: "Visit Açaí Amsterdam",
+
+    // Restaurant Section
+    restaurantTitle: "The taste of Brazil in our restaurant",
+    restaurantText:
+      "Try iconic dishes like feijoada, strogonoff and more, prepared with authentic ingredients and that homemade Brazilian touch. Our space is perfect for lunch, dinner, and also to celebrate special moments with your loved ones.\n\nWant to host your event here? Book your party, gathering or meeting and enjoy an unforgettable experience in the heart of Amsterdam!",
+    restaurantBtnEvent: "Book Event",
+    restaurantBtnDirections: "Get Directions",
 
     // Footer
     footerTagline: "Curing homesickness, one product at a time.",
@@ -136,8 +194,25 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
   };
 
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.pt] || key;
+  const t = (key: string | string[]): string => {
+    if (Array.isArray(key)) {
+      return key
+        .map((k) => {
+          const value =
+            translations[language][k as keyof typeof translations.pt];
+          if (Array.isArray(value)) {
+            return value.join(", ");
+          }
+          return value || k;
+        })
+        .join(" ");
+    }
+
+    const value = translations[language][key as keyof typeof translations.pt];
+    if (Array.isArray(value)) {
+      return value.join(", ");
+    }
+    return value || key;
   };
 
   return (

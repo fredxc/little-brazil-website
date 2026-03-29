@@ -15,7 +15,7 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Nossa História
+            {t("ourStoryTitle")}
           </motion.p>
 
           <motion.h2

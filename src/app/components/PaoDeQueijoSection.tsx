@@ -149,28 +149,7 @@ const CAROUSEL_IMAGES = [
   { src: "/carousel/carousel-3.jpg", alt: "Salgados brasileiros" },
   { src: "/carousel/carousel-4.jpg", alt: "Café com pão de queijo" },
 ];
-
-const SALGADOS = [
-  "Pão de queijo",
-  "Coxinha de frango com catupiry",
-  "Coxinha de costela com catupiry",
-  "Esfiha de frango",
-  "Esfiha de costela",
-  "Enroladinho de salsicha",
-  "Risoles de carne",
-  "Torta de frango com requeijão",
-  "Empada de palmito",
-  "Kibe frito",
-  "Café brasileiro",
-];
-
-const DOCES = [
-  "Pudim de leite condensado",
-  "Brigadeiro",
-  "Bolo de cenoura com chocolate",
-  "Bolos gelados diversos",
-  "Açaí no copo",
-];
+// Menu items are now localized via t()
 
 // ─── Sub-component: single parallax image ────────────────────────────────────
 
@@ -226,6 +205,19 @@ function FloatingImage({
 
 export function PaoDeQueijoSection() {
   const { t } = useLanguage();
+  // t may return a string (joined array) or an array, so handle both
+  const rawSalgados = t("menuSalgadosList");
+  const rawDoces = t("menuDocesList");
+  const salgados = Array.isArray(rawSalgados)
+    ? rawSalgados
+    : typeof rawSalgados === "string"
+      ? rawSalgados.split(", ")
+      : [];
+  const doces = Array.isArray(rawDoces)
+    ? rawDoces
+    : typeof rawDoces === "string"
+      ? rawDoces.split(", ")
+      : [];
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
 
@@ -293,8 +285,6 @@ export function PaoDeQueijoSection() {
                 style={{
                   fontFamily: "Gardein, sans-serif",
                   fontWeight: 700,
-                  textShadow:
-                    "0 2px 12px rgba(0,0,0,0.22), 0 1px 2px rgba(0,0,0,0.18)",
                 }}
               >
                 {t("pdqTitle")}
@@ -303,8 +293,6 @@ export function PaoDeQueijoSection() {
                 className="text-zinc-600 text-[13px] leading-relaxed"
                 style={{
                   fontFamily: "Copperplate, serif",
-                  textShadow:
-                    "0 1.5px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.15)",
                 }}
               >
                 {t("pdqSubtitle")}
@@ -344,15 +332,16 @@ export function PaoDeQueijoSection() {
                 {t("menuSalgados")}
               </span>
               <div className="flex flex-wrap items-center gap-2">
-                {SALGADOS.map((item) => (
-                  <span
-                    key={item}
-                    className="transition-all duration-150 text-zinc-800 text-sm font-semibold px-3 py-1 rounded-full hover:bg-yellow-50 hover:text-yellow-900 cursor-pointer"
-                    style={{ fontFamily: "Copperplate, serif" }}
-                  >
-                    {item}
-                  </span>
-                ))}
+                {Array.isArray(salgados) &&
+                  salgados.map((item) => (
+                    <span
+                      key={item}
+                      className="transition-all duration-150 text-zinc-800 text-sm font-semibold px-3 py-1 rounded-full hover:bg-yellow-50 hover:text-yellow-900 cursor-pointer"
+                      style={{ fontFamily: "Copperplate, serif" }}
+                    >
+                      {item}
+                    </span>
+                  ))}
               </div>
               {/* Doces row */}
               <span
@@ -362,15 +351,16 @@ export function PaoDeQueijoSection() {
                 {t("menuDoces")}
               </span>
               <div className="flex flex-wrap items-center gap-2">
-                {DOCES.map((item) => (
-                  <span
-                    key={item}
-                    className="transition-all duration-150 text-zinc-800 text-sm font-semibold px-3 py-1 rounded-full hover:bg-pink-50 hover:text-pink-900 cursor-pointer"
-                    style={{ fontFamily: "Copperplate, serif" }}
-                  >
-                    {item}
-                  </span>
-                ))}
+                {Array.isArray(doces) &&
+                  doces.map((item) => (
+                    <span
+                      key={item}
+                      className="transition-all duration-150 text-zinc-800 text-sm font-semibold px-3 py-1 rounded-full hover:bg-pink-50 hover:text-pink-900 cursor-pointer"
+                      style={{ fontFamily: "Copperplate, serif" }}
+                    >
+                      {item}
+                    </span>
+                  ))}
               </div>
             </div>
           </div>

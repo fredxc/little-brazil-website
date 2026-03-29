@@ -4,8 +4,8 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 export function StoreInfoSection() {
   const { t } = useLanguage();
-  const mapsUrl = "https://maps.app.goo.gl/YqccDKh4ALPA3g4D9";
-  const directionsUrl = "https://maps.app.goo.gl/YqccDKh4ALPA3g4D9";
+  const directionsUrl =
+    "https://www.google.com/maps/dir/?api=1&destination=Little+Brazil+Amsterdam,+Raamsteeg+6,+1012+VZ+Amsterdam&travelmode=transit";
 
   const schedule = [
     { day: t("monday"), hours: "12:00 - 17:00" },
@@ -79,7 +79,7 @@ export function StoreInfoSection() {
             {/* Google Maps Embed */}
             <div className="rounded-2xl overflow-hidden shadow-xl h-64">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.485996615022!2d4.893133815692139!3d52.37532027978802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609be8c2e5235%3A0x3b0c71c96bb39b92!2sRaamsteeg%206%2C%201012%20VZ%20Amsterdam!5e0!3m2!1sen!2snl!4v1700000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38976.1726880757!2d4.812394748632812!3d52.37022429999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6095540c3e543%3A0x7929a3d9d3a2cb33!2sLittle%20Brazil%20Amsterdam!5e0!3m2!1sen!2snl!4v1774788260110!5m2!1sen!2snl"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

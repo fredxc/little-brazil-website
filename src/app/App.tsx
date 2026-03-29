@@ -4,6 +4,7 @@ import { FloatingWhatsAppButton } from "./components/FloatingWhatsAppButton";
 import { HeroSection } from "./components/HeroSection";
 import { HeroImageSection } from "./components/HeroImageSection";
 import { PaoDeQueijoSection } from "./components/PaoDeQueijoSection";
+import { RestaurantSection } from "./components/RestaurantSection";
 import { ProductsSection } from "./components/ProductsSection";
 import { StoreInfoSection } from "./components/StoreInfoSection";
 import { AboutSection } from "./components/AboutSection";
@@ -28,6 +29,7 @@ export default function App() {
           <HeroSection />
           <HeroImageSection />
           <PaoDeQueijoSection />
+          <RestaurantSection />
           <ProductsSection />
           <AboutSection />
           <StoreInfoSection />
