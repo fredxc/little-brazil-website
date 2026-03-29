@@ -5,7 +5,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 export function AcaiSection() {
   const { t } = useLanguage();
   const acaiUrl = "https://acaiamsterdam.nl/";
-  const acaiImage = "/img-5.jpeg";
+  const acaiImage = "/acai.jpg";
 
   return (
     <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden">
@@ -48,7 +48,7 @@ export function AcaiSection() {
             {/* Logo + title */}
             <div className="flex items-center gap-3">
               <img
-                src="/acai-logo.webp"
+                src="/logos/acai-logo.webp"
                 alt="Açaí Amsterdam"
                 className="w-14 h-14 rounded-full object-cover flex-shrink-0"
               />

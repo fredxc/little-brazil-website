@@ -13,7 +13,7 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/img-1.jpeg"
+          src="/hero-bg.jpg"
           alt="Little Brazil Amsterdam store"
           className="w-full h-full object-cover object-[60%] sm:object-center"
           style={{ filter: "brightness(0.55)" }}

@@ -46,6 +46,15 @@ const translations = {
     aboutText3:
       "Cada produto é escolhido com carinho, pensando em trazer aquele gostinho de Brasil que aquece o coração.",
 
+    // Lanchonete / Menu Section
+    pdqEyebrow: "Nosso Café",
+    pdqTitle: "Vamos tomar um café?",
+    pdqSubtitle:
+      "Salgados quentinhos e doces brasileiros feitos todo dia. Uma pausa com gosto de casa no coração de Amsterdam.",
+    menuLabel: "Cardápio",
+    menuSalgados: "Salgados",
+    menuDoces: "Doces",
+
     // Acai Section
     acaiTitle: "Conheça Nosso Açaí",
     acaiSubtitle: "Açaí autêntico, fresquinho e delicioso",
@@ -93,6 +102,15 @@ const translations = {
       "Born from homesickness and the desire to connect Brazilians living far from home with the authentic flavors of our land.",
     aboutText3:
       "Each product is chosen with care, aiming to bring that taste of Brazil that warms the heart.",
+
+    // Lanchonete / Menu Section
+    pdqEyebrow: "Our Café",
+    pdqTitle: "Let's have a coffee?",
+    pdqSubtitle:
+      "Warm salgados and Brazilian sweets made fresh every day. A taste-of-home break in the heart of Amsterdam.",
+    menuLabel: "Menu",
+    menuSalgados: "Savory",
+    menuDoces: "Sweet",
 
     // Acai Section
     acaiTitle: "Discover Our Açaí",
