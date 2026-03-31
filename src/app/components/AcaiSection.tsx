@@ -5,7 +5,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 export function AcaiSection() {
   const { t } = useLanguage();
   const acaiUrl = "https://acaiamsterdam.nl/";
-  const acaiImage = "/acai.jpg";
+  const acaiImage = "/acai.webp";
 
   return (
     <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden">

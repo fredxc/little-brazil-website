@@ -72,18 +72,18 @@ export function RestaurantSection() {
         <div className="flex flex-col gap-5 items-center w-full">
           <div className="w-full flex pr-5">
             <img
-              src="/restaurant/restaurant-1.jpg"
+              src="/restaurant/restaurant-1.webp"
               alt="Feijoada e pratos brasileiros"
               className="rounded-xl shadow-lg w-1/2 object-cover aspect-[4/3]"
             />
             <img
-              src="/restaurant/restaurant-2.jpg"
+              src="/restaurant/restaurant-2.webp"
               alt="Ambiente do restaurante"
               className="rounded-xl shadow-lg w-1/2 object-cover aspect-[4/3] ml-5"
             />
           </div>
           <img
-            src="/restaurant/restaurant-3.jpg"
+            src="/restaurant/restaurant-3.webp"
             alt="Evento no restaurante"
             className="rounded-xl shadow-lg w-full object-cover"
             style={{

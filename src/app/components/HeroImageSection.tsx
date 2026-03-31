@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 
 const storeImages = [
-  { src: "/img-1.jpg", alt: "Store interior" },
-  { src: "/img-2.jpg", alt: "Brazilian coffee" },
-  { src: "/img-3.jpg", alt: "Strogonoff meal" },
+  { src: "/img-1.webp", alt: "Store interior" },
+  { src: "/img-2.webp", alt: "Brazilian coffee" },
+  { src: "/img-3.webp", alt: "Strogonoff meal" },
 ];
 
 export function HeroImageSection() {

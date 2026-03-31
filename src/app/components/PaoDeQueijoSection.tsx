@@ -65,7 +65,7 @@ function useIsMobile(breakpoint = 768) {
 const FLOATING_IMAGES: FloatingConfig[] = [
   {
     // top-left — crisp, large, fast
-    src: "/pao-de-queijo.png",
+    src: "/pao-de-queijo.webp",
     top: "6%",
     left: "-4%",
     size: 270,
@@ -78,7 +78,7 @@ const FLOATING_IMAGES: FloatingConfig[] = [
   },
   {
     // top-right — barely soft, medium-large, medium-fast
-    src: "/pao-de-queijo.png",
+    src: "/pao-de-queijo.webp",
     top: "12%",
     right: "3%",
     size: 195,
@@ -91,7 +91,7 @@ const FLOATING_IMAGES: FloatingConfig[] = [
   },
   {
     // mid-left — heavy blur, small, slow (far background)
-    src: "/pao-de-queijo.png",
+    src: "/pao-de-queijo.webp",
     top: "36%",
     left: "11%",
     size: 180,
@@ -104,7 +104,7 @@ const FLOATING_IMAGES: FloatingConfig[] = [
   },
   {
     // mid-right — crisp, biggest, fastest
-    src: "/pao-de-queijo-2.png",
+    src: "/pao-de-queijo-2.webp",
     top: "36%",
     right: "8%",
     size: 300,
@@ -117,7 +117,7 @@ const FLOATING_IMAGES: FloatingConfig[] = [
   },
   {
     // lower-left — mid blur, medium, medium
-    src: "/pao-de-queijo-2.png",
+    src: "/pao-de-queijo-2.webp",
     top: "65%",
     left: "3%",
     size: 210,
@@ -130,7 +130,7 @@ const FLOATING_IMAGES: FloatingConfig[] = [
   },
   {
     // lower-right — heavy blur, small, slow
-    src: "/pao-de-queijo.png",
+    src: "/pao-de-queijo.webp",
     top: "70%",
     right: "-1%",
     size: 150,
@@ -144,10 +144,10 @@ const FLOATING_IMAGES: FloatingConfig[] = [
 ];
 
 const CAROUSEL_IMAGES = [
-  { src: "/carousel/carousel-1.jpg", alt: "Pão de queijo" },
-  { src: "/carousel/carousel-2.jpg", alt: "Açaí no copo" },
-  { src: "/carousel/carousel-3.jpg", alt: "Salgados brasileiros" },
-  { src: "/carousel/carousel-4.jpg", alt: "Café com pão de queijo" },
+  { src: "/carousel/carousel-1.webp", alt: "Pão de queijo" },
+  { src: "/carousel/carousel-2.webp", alt: "Açaí no copo" },
+  { src: "/carousel/carousel-3.webp", alt: "Salgados brasileiros" },
+  { src: "/carousel/carousel-4.webp", alt: "Café com pão de queijo" },
 ];
 // Menu items are now localized via t()
 

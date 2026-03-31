@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Globe } from "lucide-react";
 
-const logoWhite = "/logos/logo-white.png";
+const logoWhite = "/logos/logo-white.webp";
 
 export function Navbar() {
   const { language, toggleLanguage } = useLanguage();

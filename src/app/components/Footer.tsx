@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { motion } from "motion/react";
 import { useLanguage } from "../contexts/LanguageContext";
 
-const logoWhite = "/logos/logo-white.png";
+const logoWhite = "/logos/logo-white.webp";
 
 export function Footer() {
   const { t } = useLanguage();
