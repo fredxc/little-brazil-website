@@ -18,7 +18,7 @@ const translations = {
     ctaWhatsApp: "Falar no WhatsApp",
 
     // Products Section
-    productsTitle: "Nossos Produtos",
+    productsTitle: "Alguns de Nossos Produtos",
     productsSubtitle: "Os sabores que você ama, pertinho de você",
 
     // Store Info Section
@@ -85,9 +85,9 @@ const translations = {
     ctaAcai: "Visitar Açaí Amsterdam",
 
     // Restaurant Section
-    restaurantTitle: "O sabor do Brasil no nosso restaurante",
+    restaurantTitle: "O sabor do Brasil no nosso café",
     restaurantText:
-      "Experimente pratos icônicos como feijoada, strogonoff e muito mais, preparados com ingredientes autênticos e aquele toque caseiro brasileiro. Nosso espaço é perfeito para almoços, jantares e também para celebrar momentos especiais com quem você ama.\n\nQuer fazer seu evento aqui? Agende sua festa, confraternização ou reunião e viva uma experiência inesquecível no coração de Amsterdam!",
+      "Experimente pratos icônicos como feijoada, strogonoff e muito mais, preparados com ingredientes autênticos e aquele toque caseiro brasileiro. Servimos almoços nos fins de semana e também temos opções de comida congelada para levar para casa!\n\nQuer fazer seu evento aqui? Agende sua festa, confraternização ou reunião e viva uma experiência inesquecível no coração de Amsterdam!",
     restaurantBtnEvent: "Agendar Evento",
     restaurantBtnDirections: "Como Chegar",
 
@@ -104,7 +104,7 @@ const translations = {
     ctaWhatsApp: "Chat on WhatsApp",
 
     // Products Section
-    productsTitle: "Our Products",
+    productsTitle: "Some of Our Products",
     productsSubtitle: "The flavors you love, close to you",
 
     // Store Info Section
@@ -171,9 +171,9 @@ const translations = {
     ctaAcai: "Visit Açaí Amsterdam",
 
     // Restaurant Section
-    restaurantTitle: "The taste of Brazil in our restaurant",
+    restaurantTitle: "The taste of Brazil in our café",
     restaurantText:
-      "Try iconic dishes like feijoada, strogonoff and more, prepared with authentic ingredients and that homemade Brazilian touch. Our space is perfect for lunch, dinner, and also to celebrate special moments with your loved ones.\n\nWant to host your event here? Book your party, gathering or meeting and enjoy an unforgettable experience in the heart of Amsterdam!",
+      "Try iconic dishes like feijoada, strogonoff and more, prepared with authentic ingredients and that homemade Brazilian touch. We serve lunch on weekends and also offer frozen food options to take home!\n\nWant to host your event here? Book your party, gathering or meeting and enjoy an unforgettable experience in the heart of Amsterdam!",
     restaurantBtnEvent: "Book Event",
     restaurantBtnDirections: "Get Directions",
 

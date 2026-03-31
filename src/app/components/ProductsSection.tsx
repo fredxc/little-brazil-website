@@ -9,11 +9,6 @@ const products = [
     image: "/products/prod-1.png",
   },
   {
-    name: "Danentte",
-    nameEn: "Chocolate Pudding Cup",
-    image: "/products/prod-2.png",
-  },
-  {
     name: "Suco Maguary",
     nameEn: "Maguary Tropical Juice",
     image: "/products/prod-3.png",
@@ -29,24 +24,9 @@ const products = [
     image: "/products/prod-5.png",
   },
   {
-    name: "Molho Tomate Quero",
-    nameEn: "Quero Tomato Sauce",
-    image: "/products/prod-6.png",
-  },
-  {
     name: "Palmito Pupunha",
     nameEn: "Peach Palm Hearts",
     image: "/products/prod-7.png",
-  },
-  {
-    name: "Molhos Soul Brasil",
-    nameEn: "Soul Brasil Hot Sauces",
-    image: "/products/prod-8.png",
-  },
-  {
-    name: "Gelatina Pronta",
-    nameEn: "Ready-Made Jelly",
-    image: "/products/prod-9.png",
   },
   {
     name: "Guaraná Antarctica Zero",
@@ -140,19 +120,9 @@ const products = [
     image: "/products/prod-28.png",
   },
   {
-    name: "Amendoim Japonês",
-    nameEn: "Japanese-Style Coated Peanuts",
-    image: "/products/prod-29.png",
-  },
-  {
     name: "Chá Matte Leão",
     nameEn: "Leão Iced Mate Tea",
     image: "/products/prod-30.png",
-  },
-  {
-    name: "Azeitonas Rivoli",
-    nameEn: "Rivoli Olives",
-    image: "/products/prod-31.png",
   },
   {
     name: "Biscoito Nesfit",
@@ -187,9 +157,9 @@ const products = [
 ];
 
 // Split into 3 non-overlapping groups so each row shows unique products
-const row1 = products.slice(0, 13); // 13 items
-const row2 = products.slice(13, 25); // 12 items
-const row3 = products.slice(25); // 12 items
+const row1 = products.slice(0, 11); // 11 items
+const row2 = products.slice(11, 21); // 10 items
+const row3 = products.slice(21); // 10 items
 
 interface MarqueeRowProps {
   items: typeof products;
